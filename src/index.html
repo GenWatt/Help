@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio - Adrian Raszka</title>
+  </head>
+  <body>
+    <header><h1 class="header">Portfolio - Adrian Raszka</h1></header>
+
+    <main class="container">
+      <nav class="nav">
+        <button class="nav__item" data-interface="ABOUT_ME">O mnie</button>
+        <button class="nav__item" data-interface="CONTACT">Kontakt</button>
+        <button class="nav__item" data-interface="TECHNOLOGY">Technologie</button>
+        <button class="nav__item" data-interface="PROJECTS">Projekty</button>
+      </nav>
+      <article class="inner-container">
+        <section class="box-info" data-interface="ABOUT_ME">
+          <header class="heading">
+            <h2></h2>
+            <img src="./assets/demo.jpg" alt="profilowe" />
+          </header>
+          <p class="description">
+            Witam. Zajmuję się programowaniem stron internetowych od strony Front Endu od ponad roku
+            niekomercyjnie. Od nie dawana postanowiłem poszerzyć wiedzę o backend. Jestem samoukiem, który
+            uwialbia programować i spędzać czas dowiadując się czegoś nowego. Firmie mogłbym oferować
+            pracownika,który łatwo się nie podda powierzonemu zadaniu, będzie solidny i chętny do nauki. Od
+            firmy chciałbym mieć zapewnione możliwości rozwoju.
+          </p>
+          <i class="fas fa-pen bg-icon"></i>
+        </section>
+        <section class="box-info" data-interface="TECHNOLOGY">
+          <h2></h2>
+          <ul class="technology-set">
+            <li><i class="fab fa-html5 tech-icon"></i><span>HTML</span></li>
+            <li><i class="fab fa-css3-alt tech-icon"></i><span>CSS, SCSS</span></li>
+            <li><i class="fab fa-js-square tech-icon"></i><span>JavaScript ES6+</span></li>
+            <li><i class="fab fa-react tech-icon"></i><span>React, Redux</span></li>
+            <li><i class="fab fa-node tech-icon"></i><span>Node, Express</span></li>
+            <li><i class="fas fa-database tech-icon"></i><span>MongoDB</span></li>
+          </ul>
+          <i class="fas fa-microchip bg-icon"></i>
+        </section>
+        <section class="box-info" data-interface="PROJECTS">
+          <h2></h2>
+          <div class="filter-box"></div>
+          <ul class="projects-container"></ul>
+          <i class="fas fa-project-diagram bg-icon"></i>
+        </section>
+        <section class="box-info" data-interface="CONTACT">
+          <h2></h2>
+          <h3>Telefon:</h3>
+          <i class="fas fa-address-book bg-icon"></i>
+        </section>
+      </article>
+      <section class="social-media">
+        <a class="labels linkedin" href="https://www.linkedin.com/in/adrian-raszka-front-end/" target="blank"
+          ><i class="fab fa-linkedin-in"></i>
+          <p>LinkedIn</p></a
+        >
+        <a class="labels github" href="https://github.com/GenWatt" target="blank"
+          ><i class="fab fa-github"></i>
+          <p>GitHub</p></a
+        >
+        <a class="labels phone-number" href="tel:784456947" target="blank"
+          ><i class="fas fa-phone-square"></i>
+          <p>Telefon</p></a
+        >
+      </section>
+    </main>
+    <footer>
+      <p>Contact me:</p>
+    </footer>
+    <script src="https://kit.fontawesome.com/61630affa7.js" crossorigin="anonymous"></script>
+  </body>
+</html>

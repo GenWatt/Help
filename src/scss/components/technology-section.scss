@@ -1,0 +1,115 @@
+// technology section
+.technology-set {
+  margin-left: 20px;
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  list-style: none;
+
+  & li {
+    transform: translateY(-40px);
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out, transform 0.3s ease-out;
+    display: grid;
+
+    & span {
+      font-size: $font-very-small;
+      margin-top: 5px;
+    }
+
+    & i {
+      font-size: $font-large;
+      color: $secondary-color;
+      text-align: center;
+    }
+  }
+
+  & li.show {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.projects-container {
+  list-style-type: none;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+
+  .project-box {
+    cursor: pointer;
+    flex-basis: 25%;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transform-origin: center;
+    transform: scaleY(0);
+    transition: transform 1s ease-out 0.4s;
+
+    a {
+      color: $primary-font-color;
+      text-decoration: none;
+    }
+
+    .project-title {
+      list-style: none;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      transition: transform 0.4s ease, letter-spacing 0.3s ease-in-out 0.1s;
+    }
+
+    .project-img {
+      max-width: 200px;
+      height: 150px;
+      border-radius: $radius;
+      pointer-events: none;
+      transition: transform 0.2s ease;
+    }
+
+    p {
+      font-size: $font-very-small;
+      text-align: left;
+      padding: 5px;
+      background-color: $secondary-color-low-alpha;
+      border-radius: $radius / 2;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .tags {
+      display: flex;
+      list-style: none;
+      transition: transform 0.5s ease-in;
+
+      .tag {
+        padding: 3px;
+        border: 1px solid $primary-font-color;
+        margin-right: 4px;
+        margin-top: 8px;
+        opacity: 0.4;
+        border-radius: $radius;
+        font-size: $font-very-small;
+        transition: opacity 0.75s ease-out;
+
+        &.active {
+          opacity: 0.8;
+        }
+      }
+    }
+
+    &.on-mouse {
+      & .project-title {
+        transform: translateZ(30px);
+        letter-spacing: 2px;
+      }
+
+      & p {
+        transform: translateY(8px);
+      }
+
+      & .tags {
+        transform: translateY(4px);
+      }
+    }
+  }
+}

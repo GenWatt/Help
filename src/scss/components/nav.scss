@@ -1,0 +1,82 @@
+@import "./variables.scss";
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  max-width: 200px;
+  min-width: 200px;
+  margin-top: 30px;
+
+  .nav__item {
+    width: 100%;
+    height: 80px;
+    background-color: $primary-light-color;
+    color: $primary-font-color;
+    cursor: pointer;
+    padding: 5px;
+    border: 1px solid $secondary-dark-color;
+    position: relative;
+    z-index: 1;
+    transition: background-color 0.2s ease, transform 0.4s ease-in-out, opacity 0.3s ease-in;
+    transform-origin: left;
+    outline: none;
+    overflow: hidden;
+    transform: rotateY(90deg);
+    opacity: 0;
+
+    &.flip {
+      transform: rotateY(0);
+      opacity: 1;
+    }
+
+    &:first-child {
+      border-top-right-radius: 5px;
+    }
+
+    &:last-child {
+      border-bottom-right-radius: 5px;
+    }
+
+    &.active {
+      background-color: $secondary-color;
+    }
+
+    &:hover::after {
+      content: "";
+      background-color: rgba(255, 255, 255, 0.384);
+      height: 110%;
+      width: 5%;
+      position: absolute;
+      top: 0;
+      transform: rotate(20deg);
+      animation: slide-right 1.2s ease infinite;
+      animation-delay: var(--i);
+      @keyframes slide-right {
+        0% {
+          left: 0;
+        }
+        100% {
+          left: 300px;
+        }
+      }
+    }
+
+    &::before {
+      content: "";
+      background-color: $secondary-color-lighter;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      transform-origin: left;
+      transform: scaleX(0);
+      z-index: -1;
+      transition: background-color 0.3s ease, transform 0.4s ease;
+    }
+
+    &:hover:not(.active)::before {
+      transform: scaleX(1.1);
+    }
+  }
+}

@@ -1,0 +1,39 @@
+@import "./components/nav.scss";
+@import "./components/social-media.scss";
+@import "./components/content-containers.scss";
+@import "./components/content.scss";
+@import "./components/technology-section.scss";
+@import "./components/filter-box.scss";
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-image: url("../assets/bg1.jpg");
+  background-size: 120% 120%;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  color: $primary-font-color;
+  font-family: Arial, Helvetica, sans-serif;
+  perspective: 700px;
+  overflow-x: hidden;
+}
+
+.header {
+  font-size: $font-large;
+  text-align: center;
+  margin-top: 40px;
+  animation: letter-spacing 1s ease-in 1s forwards;
+  @keyframes letter-spacing {
+    0% {
+      letter-spacing: 0;
+    }
+    100% {
+      letter-spacing: 3px;
+      font-size: $font-large + 0, 4;
+    }
+  }
+}

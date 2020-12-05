@@ -1,0 +1,27 @@
+@import "../variables.scss";
+
+.container {
+  display: flex;
+}
+
+.inner-container {
+  background-color: $primary-light-color;
+  width: 100%;
+  margin: 30px 10px 0 15px;
+  border-radius: 5px;
+  padding: 15px;
+  box-shadow: 5px 5px 10px rgba(83, 83, 83, 0.226), -5px -5px 10px rgba(75, 75, 75, 0.281);
+  animation: container-entry 0.76s ease 0.3s;
+  transform-origin: 70% 30%;
+  @keyframes container-entry {
+    0% {
+      transform: scale(0.2) rotate(360deg);
+    }
+    50% {
+      transform: scale(0.6) rotate(0);
+    }
+    100% {
+      transform: scale(1) rotate(0);
+    }
+  }
+}

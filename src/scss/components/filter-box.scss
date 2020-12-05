@@ -1,0 +1,23 @@
+.filter-box {
+  button {
+    background-color: transparent;
+    border-radius: $radius;
+    border: 1px solid $secondary-color;
+    padding: 4px;
+    margin-right: 5px;
+    margin-bottom: 30px;
+    color: $primary-font-color;
+    transition: 0.2s ease-in-out;
+    outline: none;
+    cursor: pointer;
+
+    &:hover,
+    &.active {
+      letter-spacing: 1px;
+    }
+    &.active {
+      border: 1px solid $primary-font-color;
+      background-color: $secondary-color;
+    }
+  }
+}
