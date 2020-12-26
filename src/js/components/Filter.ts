@@ -10,6 +10,7 @@ class Filter {
       state.currentFilters = state.currentFilters.filter((filter) => target.value !== filter);
       return render.createProjects(true);
     }
+
     target.classList.add("active");
     state.currentFilters.push(target.value);
     render.createProjects(true);

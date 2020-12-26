@@ -1,15 +1,16 @@
-import { DOMElements } from "../DOMElements.ts";
 import { state, projects } from "../state.ts";
-import { Interfaces } from "../state";
+import { ICONS_INTERFACE, NAV_ITEM_ACTIVE } from "../constant.ts";
+import { Interfaces } from "../constant";
 import Animations from "./Animations.ts";
 import Render from "./Render.ts";
+import AnimationFactory from "./AnimationFactory.ts";
 
 class ManageInterfaces {
   public static activeInterface(element) {
     const pickedInterface = element.dataset.interface;
 
-    if (document.querySelector(".nav__item.active"))
-      document.querySelector(".nav__item.active").classList.remove("active");
+    if (document.querySelector(NAV_ITEM_ACTIVE))
+      document.querySelector(NAV_ITEM_ACTIVE).classList.remove("active");
 
     if (element) element.classList.add("active");
     this.saveCurrentInterface(pickedInterface);
@@ -36,26 +37,32 @@ class ManageInterfaces {
     }
 
     currentActiveInterface.style.display = "block";
-    this.manageInterfaceAnimations(currentActiveInterface);
+    setTimeout(() => this.manageInterfaceAnimations(currentActiveInterface), 60);
+    this.setIcon(state.currentInterface);
   }
 
   private static manageInterfaceAnimations(currentActiveInterface: HTMLElement) {
-    setTimeout(() => {
-      currentActiveInterface.classList.add("show");
-      Render.createSplitLetterHeader(
-        document.querySelector(`.box-info[data-interface="${state.currentInterface}"] h2`)
-      );
-      currentActiveInterface.addEventListener("transitionend", () =>
-        Animations.animateTechHeader(
-          document.querySelectorAll(`.box-info[data-interface="${state.currentInterface}"] h2 span`)
-        )
-      );
-      if (state.currentInterface === Interfaces.TECHNOLOGY) {
-        DOMElements.technologyItems.forEach((item: HTMLElement, index) =>
-          setTimeout(() => item.classList.add("show"), 100 * index)
-        );
-      } else DOMElements.technologyItems.forEach((item: HTMLElement) => item.classList.remove("show"));
-    }, 60);
+    const { currentInterface } = state;
+
+    currentActiveInterface.classList.add("show");
+    Render.createSplitLetterHeader(
+      document.querySelector(`.box-info[data-interface="${currentInterface}"] h2`)
+    );
+
+    Animations.delayAnimation(
+      document.querySelectorAll(`.box-info[data-interface="${currentInterface}"] h2 span`),
+      150,
+      "scale"
+    ),
+      AnimationFactory.animateActiveInterface(currentInterface);
+  }
+
+  public static setIcon(currentInterface: Interfaces) {
+    document.querySelectorAll(ICONS_INTERFACE).forEach((icon: HTMLElement) => {
+      icon.dataset.iconinterface === currentInterface
+        ? icon.classList.add("active")
+        : icon.classList.remove("active");
+    });
   }
 
   public static setInterface() {

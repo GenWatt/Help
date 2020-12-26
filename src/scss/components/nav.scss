@@ -24,7 +24,7 @@
     transform: rotateY(90deg);
     opacity: 0;
 
-    &.flip {
+    &.show {
       transform: rotateY(0);
       opacity: 1;
     }

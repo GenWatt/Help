@@ -2,6 +2,8 @@
 
 .container {
   display: flex;
+  min-height: 100vh;
+  perspective: 700px;
 }
 
 .inner-container {
@@ -13,6 +15,8 @@
   box-shadow: 5px 5px 10px rgba(83, 83, 83, 0.226), -5px -5px 10px rgba(75, 75, 75, 0.281);
   animation: container-entry 0.76s ease 0.3s;
   transform-origin: 70% 30%;
+  height: fit-content;
+
   @keyframes container-entry {
     0% {
       transform: scale(0.2) rotate(360deg);

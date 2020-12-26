@@ -1,5 +1,12 @@
-import { DOMElements } from "../DOMElements.ts";
-import { ProjectI } from "../state";
+import {
+  FILTER_BOX,
+  PROJECT_BOXES,
+  PROJECT_CONTAINER,
+  FILTER_BUTTONS,
+  PROJECT_HEADER,
+  TAG,
+} from "../constant.ts";
+import { ProjectI } from "../interfaces";
 import { state, filters } from "../state.ts";
 import Animations from "./Animations.ts";
 import Filter from "./Filter.ts";
@@ -25,13 +32,13 @@ class Render {
   }
 
   public createProjects(isFilter: boolean = false) {
-    if (document.querySelectorAll(".project-box").length === this.projects.length && !isFilter) return;
-    DOMElements.projectsContainer.innerHTML = "";
+    if (document.querySelectorAll(PROJECT_BOXES).length === this.projects.length && !isFilter) return;
+    document.querySelector(PROJECT_CONTAINER).innerHTML = "";
 
     this.projects.forEach(({ title, img, desc, technologies, link }) => {
       if (Filter.filter(technologies)) {
         const li = document.createElement("li");
-        li.classList.add("project-box");
+        li.className = Filter.filter(technologies) && isFilter ? "project-box show" : "project-box";
         li.innerHTML = `
       <a href="${link}" target="blank">
         <h4 class="project-title">${title}</h4>
@@ -45,15 +52,14 @@ class Render {
       </a>
       `;
 
-        DOMElements.projectsContainer.appendChild(li);
+        document.querySelector(PROJECT_CONTAINER).appendChild(li);
       }
     });
 
-    if (document.querySelectorAll(".filter-box button").length !== filters.length)
-      this.createFilters(filters);
+    if (document.querySelectorAll(FILTER_BUTTONS).length !== filters.length) this.createFilters(filters);
 
     Render.highlightActiveFilters(state.currentFilters);
-    Animations.projectRotate(document.querySelectorAll(".project-box"));
+    Animations.projectRotate(document.querySelectorAll(PROJECT_BOXES));
   }
 
   public createFilters(filters: string[]) {
@@ -63,13 +69,13 @@ class Render {
       button.value = filter;
       button.addEventListener("click", (e) => Filter.setFilters(e.target));
 
-      DOMElements.filterBox.insertBefore(button, document.querySelector(".projects-container h2"));
+      document.querySelector(FILTER_BOX).insertBefore(button, document.querySelector(PROJECT_HEADER));
     });
   }
 
   public static highlightActiveFilters(activeFilters: string[]) {
-    document.querySelectorAll(".project-box").forEach((box) => {
-      box.querySelectorAll(`.tag`).forEach((filterElemnt) => filterElemnt.classList.remove("active"));
+    document.querySelectorAll(PROJECT_BOXES).forEach((box) => {
+      box.querySelectorAll(TAG).forEach((filterElemnt) => filterElemnt.classList.remove("active"));
 
       activeFilters.forEach((filter) => {
         if (box.querySelectorAll(`.tag[data-filter="${filter}"]`).length)

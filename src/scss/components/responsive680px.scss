@@ -1,0 +1,65 @@
+@media only screen and (max-width: 680px) {
+  html {
+    font-size: 14px;
+    overflow-x: hidden;
+  }
+
+  .heading {
+    flex-direction: column;
+
+    img {
+      align-self: center;
+    }
+  }
+  .container {
+    flex-direction: column;
+  }
+
+  .nav {
+    flex-direction: row;
+    max-width: 100%;
+    margin: 3px;
+  }
+
+  .inner-container {
+    margin: 20px 0;
+    width: 95%;
+    align-self: center;
+    overflow-x: hidden;
+  }
+
+  .technology-set {
+    justify-content: space-around;
+    li {
+      margin-bottom: 10px;
+      margin-left: 5px;
+    }
+  }
+
+  .projects-container .project-box {
+    margin-bottom: 10px;
+    flex-basis: 100%;
+  }
+
+  .bg-icon {
+    display: none !important;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .nav__item {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+  }
+
+  .social-media {
+    bottom: 10px;
+    .labels {
+      width: 120px;
+      i {
+        font-size: $font-small + 0.2;
+      }
+    }
+  }
+}

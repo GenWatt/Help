@@ -1,25 +1,8 @@
 import CoronaTracker from "../assets/Corona-Tracker.jpg";
 import MobileShop from "../assets/Mobile-shop.png";
-
-export const enum Interfaces {
-  ABOUT_ME = "ABOUT_ME",
-  CONTACT = "CONTACT",
-  TECHNOLOGY = "TECHNOLOGY",
-  PROJECTS = "PROJECTS",
-  EMPTY = "",
-}
-
-interface IState {
-  currentInterface: Interfaces;
-  polishInterfaceName: {
-    ABOUT_ME: string;
-    CONTACT: string;
-    TECHNOLOGY: string;
-    PROJECTS: string;
-  };
-  BG_MOVEMENT_SPEED: number;
-  currentFilters: string[];
-}
+import AdrianTube from "../assets/adriantube.png";
+import { Interfaces } from "./constant";
+import { IState, ProjectI } from "./interfaces";
 
 export const state: IState = {
   currentInterface: Interfaces.EMPTY,
@@ -33,21 +16,13 @@ export const state: IState = {
   currentFilters: [],
 };
 
-export interface ProjectI {
-  title: string;
-  img: string;
-  technologies: string[];
-  desc: string;
-  link: string;
-}
-
 export const projects: ProjectI[] = [
   {
     title: "AdrianTube",
-    img: CoronaTracker,
+    img: AdrianTube,
     technologies: ["React", "Redux", "TypeScript"],
     desc: "Aplikacja do oglądania filmów.",
-    link: "",
+    link: "https://stoic-jennings-9a00f9.netlify.app/#/",
   },
   {
     title: "Corona-Tracker",
@@ -65,7 +40,7 @@ export const projects: ProjectI[] = [
   },
 ];
 
-export const filters = [
+export const filters: string[] = [
   "React",
   "JS",
   "HTML",

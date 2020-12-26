@@ -4,6 +4,7 @@
   opacity: 0;
   display: none;
   transition: opacity 0.3s ease;
+  min-height: 400px;
 
   .tech-letter {
     min-width: 10px;
@@ -18,47 +19,52 @@
   .tech-icon {
     margin-right: 10px;
   }
+  //contact
+  .contact-item {
+    transform: translateY(80px);
+    transition: transform 0.5s ease 0.3s, opacity 0.4s ease-in 0.3s;
+    opacity: 0;
 
-  .bg-icon {
-    position: absolute;
-    top: 80%;
-    left: 55%;
-    transform: translate(-50%, -50%);
-    transition: transform 0.8s ease-in-out;
-    opacity: 0.4;
-    font-size: $font-large + 4;
-    animation: bg-icon-animation 5s ease-out infinite;
-    pointer-events: none;
-  }
-
-  @keyframes bg-icon-animation {
-    0%,
-    100% {
-      transform: scale(0.6) translate(-50%, -50%);
+    a {
+      color: $primary-font-color;
+      font-size: $font-very-small;
+      cursor: pointer;
     }
-    50% {
-      transform: scale(1) translate(-50%, -50%);
+
+    &.show {
+      transform: translateY(0);
+      opacity: 1;
     }
   }
+
   // about me interface
   .heading {
     display: flex;
     justify-content: space-between;
 
-    & img {
-      max-width: 200px;
-      max-height: 200px;
+    a {
+      display: block;
+    }
+
+    img {
+      max-width: 250px;
+      max-height: 250px;
+      min-width: 200px;
+      min-width: 200px;
       border-radius: 15px;
       transform: translateX(200px);
       opacity: 0;
-      transition: opacity 0.4s ease-in, transform 0.5s ease-in;
+      transition: opacity 0.4s ease-in 0.4s, transform 0.5s ease-in 0.4s;
     }
   }
 
   .description {
     margin-top: 30px;
-    font-size: $font-very-small;
+    font-size: $font-small;
     line-height: 120%;
+    transform: translateY(30px);
+    opacity: 0;
+    transition: transform 0.5s ease 0.65s, opacity 0.5s ease-in 0.8s;
   }
 
   & h2 {
@@ -86,7 +92,9 @@
   &.show {
     opacity: 1;
 
-    & h2 {
+    h2,
+    .description,
+    img {
       transform: translateX(0);
       opacity: 1;
     }
@@ -95,17 +103,16 @@
       transform: scaleX(1);
     }
 
-    & .bg-icon {
+    .bg-icon {
       transform: translate(-50%, -50%);
     }
-
-    & img {
-      transform: translateX(0);
-      opacity: 1;
-    }
   }
 
-  &.show .projects-container .project-box {
-    transform: scaleY(1);
+  .current-learning {
+    margin-top: 20px;
   }
+}
+
+.projects-container .project-box.show {
+  transform: scaleY(1);
 }
