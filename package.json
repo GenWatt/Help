@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/GenWatt/Portfolio.git"
+    "url": "git+https://github.com/GenWatt/My-portfolio.git"
   },
   "keywords": [
     "Portfolio"
@@ -18,9 +18,9 @@
   "author": "Adrian Raszka",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/GenWatt/Portfolio/issues"
+    "url": "https://github.com/GenWatt/My-portfolio/issues"
   },
-  "homepage": "https://github.com/GenWatt/Portfolio#readme",
+  "homepage": "https://github.com/GenWatt/My-portfolio#readme",
   "devDependencies": {
     "@babel/core": "^7.9.6",
     "@babel/preset-env": "^7.9.6",
@@ -45,5 +45,7 @@
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.11.0"
   },
-  "dependencies": {}
+  "dependencies": {
+
+  }
 }
