@@ -42,11 +42,14 @@ class Render {
         li.innerHTML = `
       <a href="${link}" target="blank">
         <h4 class="project-title">${title}</h4>
-        <img src="${img}" alt="${title}" class="project-img"/>
+        <img src="${img}" alt="${title}" loading="lazy"  class="project-img"/>
         <p>${desc}</p>
         <ul class="tags">
           ${technologies
-            .map((technology) => `<li class="tag" data-filter="${technology}">${technology}</li>`)
+            .map(
+              (technology) =>
+                `<li class="tag" data-filter="${technology.toLocaleLowerCase()}">${technology}</li>`
+            )
             .join("")}
         </ul>
       </a>
@@ -75,14 +78,17 @@ class Render {
 
   public static highlightActiveFilters(activeFilters: string[]) {
     document.querySelectorAll(PROJECT_BOXES).forEach((box) => {
-      box.querySelectorAll(TAG).forEach((filterElemnt) => filterElemnt.classList.remove("active"));
+      box.querySelectorAll(TAG).forEach((filterElement) => filterElement.classList.remove("active"));
 
-      activeFilters.forEach((filter) => {
-        if (box.querySelectorAll(`.tag[data-filter="${filter}"]`).length)
-          box.querySelectorAll(`.tag[data-filter="${filter}"]`).forEach((tagElement) => {
-            tagElement.classList.add("active");
-          });
-      });
+      activeFilters
+        .map((filter) => filter.toLocaleLowerCase())
+        .forEach((filter) => {
+          console.log(filter);
+          if (box.querySelectorAll(`.tag[data-filter="${filter}"]`).length)
+            box.querySelectorAll(`.tag[data-filter="${filter}"]`).forEach((tagElement) => {
+              tagElement.classList.add("active");
+            });
+        });
     });
   }
 }

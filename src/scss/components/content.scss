@@ -1,118 +1,102 @@
 @import "../variables.scss";
-
 .box-info {
-  opacity: 0;
-  display: none;
-  transition: opacity 0.3s ease;
-  min-height: 400px;
-
-  .tech-letter {
-    min-width: 10px;
-    display: inline-block;
-    transition: transform 0.25s ease 0.2s;
-
-    &.scale {
-      transform: scaleY(1.5);
-    }
-  }
-
-  .tech-icon {
-    margin-right: 10px;
-  }
-  //contact
-  .contact-item {
-    transform: translateY(80px);
-    transition: transform 0.5s ease 0.3s, opacity 0.4s ease-in 0.3s;
     opacity: 0;
-
-    a {
-      color: $primary-font-color;
-      font-size: $font-very-small;
-      cursor: pointer;
+    display: none;
+    transition: opacity 0.3s ease;
+    min-height: 400px;
+    overflow-y: scroll;
+    .tech-letter {
+        min-width: 10px;
+        display: inline-block;
+        transition: transform 0.25s ease 0.2s;
+        &.scale {
+            transform: scaleY(1.5);
+        }
     }
-
+    .tech-icon {
+        margin-right: 10px;
+    }
+    //contact
+    .contact-item {
+        transform: translateY(80px);
+        transition: transform 0.5s ease 0.3s, opacity 0.4s ease-in 0.3s;
+        opacity: 0;
+        a {
+            color: $primary-font-color;
+            font-size: $font-very-small;
+            cursor: pointer;
+        }
+        &.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+    // about me interface
+    .heading {
+        display: flex;
+        justify-content: space-between;
+        a {
+            display: block;
+        }
+        img {
+            max-width: 250px;
+            max-height: 250px;
+            min-width: 200px;
+            min-width: 200px;
+            border-radius: 15px;
+            transform: translateX(200px);
+            opacity: 0;
+            transition: opacity 0.4s ease-in 0.4s, transform 0.5s ease-in 0.4s;
+        }
+    }
+    .description {
+        margin-top: 30px;
+        font-size: $font-small;
+        line-height: 120%;
+        transform: translateY(30px);
+        opacity: 0;
+        transition: transform 0.5s ease 0.65s, opacity 0.5s ease-in 0.8s;
+    }
+    & h2 {
+        transform: translateX(-150px);
+        transition: transform 0.4s ease 0.3s, opacity 0.6s ease-out;
+        opacity: 0;
+        margin-bottom: 30px;
+        text-transform: uppercase;
+        display: inline-block;
+        &::before {
+            content: "";
+            width: 100%;
+            height: 3px;
+            background-color: $secondary-color;
+            position: absolute;
+            left: 0;
+            top: 35px;
+            transform: scaleX(0);
+            transform-origin: center;
+            transition: transform 0.5s ease-in 1s;
+        }
+    }
     &.show {
-      transform: translateY(0);
-      opacity: 1;
+        opacity: 1;
+        h2,
+        .description,
+        img {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        h2::before {
+            transform: scaleX(1);
+        }
+        .bg-icon {
+            transform: translate(-50%, -50%);
+        }
     }
-  }
-
-  // about me interface
-  .heading {
-    display: flex;
-    justify-content: space-between;
-
-    a {
-      display: block;
+    .current-learning {
+        margin-top: 20px;
     }
-
-    img {
-      max-width: 250px;
-      max-height: 250px;
-      min-width: 200px;
-      min-width: 200px;
-      border-radius: 15px;
-      transform: translateX(200px);
-      opacity: 0;
-      transition: opacity 0.4s ease-in 0.4s, transform 0.5s ease-in 0.4s;
-    }
-  }
-
-  .description {
-    margin-top: 30px;
-    font-size: $font-small;
-    line-height: 120%;
-    transform: translateY(30px);
-    opacity: 0;
-    transition: transform 0.5s ease 0.65s, opacity 0.5s ease-in 0.8s;
-  }
-
-  & h2 {
-    transform: translateX(-150px);
-    transition: transform 0.4s ease 0.3s, opacity 0.6s ease-out;
-    opacity: 0;
-    margin-bottom: 30px;
-    text-transform: uppercase;
-    display: inline-block;
-
-    &::before {
-      content: "";
-      width: 100%;
-      height: 3px;
-      background-color: $secondary-color;
-      position: absolute;
-      left: 0;
-      top: 35px;
-      transform: scaleX(0);
-      transform-origin: center;
-      transition: transform 0.5s ease-in 1s;
-    }
-  }
-
-  &.show {
-    opacity: 1;
-
-    h2,
-    .description,
-    img {
-      transform: translateX(0);
-      opacity: 1;
-    }
-
-    h2::before {
-      transform: scaleX(1);
-    }
-
-    .bg-icon {
-      transform: translate(-50%, -50%);
-    }
-  }
-
-  .current-learning {
-    margin-top: 20px;
-  }
 }
 
 .projects-container .project-box.show {
-  transform: scaleY(1);
+    transform: scaleY(1);
 }

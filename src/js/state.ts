@@ -1,6 +1,7 @@
 import CoronaTracker from "../assets/Corona-Tracker.jpg";
 import MobileShop from "../assets/Mobile-shop.png";
 import AdrianTube from "../assets/adriantube.png";
+import MinecraftBook from "../assets/minecraftBook.png";
 import { Interfaces } from "./constant";
 import { IState, ProjectI } from "./interfaces";
 
@@ -25,18 +26,25 @@ export const projects: ProjectI[] = [
     link: "https://stoic-jennings-9a00f9.netlify.app/#/",
   },
   {
-    title: "Corona-Tracker",
+    title: "Corona Tracker",
     img: CoronaTracker,
     technologies: ["JS", "HTML", "SCSS", "TypeScript"],
     desc: "Ładuje informacje o rozprzestrzenianiu się wirusa.",
     link: "https://genwatt.github.io/Corona-Tracker/",
   },
   {
-    title: "Mobile-Shop",
+    title: "Mobile Shop",
     img: MobileShop,
     technologies: ["Node", "Express", "MongoDB", "EJS"],
     desc: "Sklep internetowy",
     link: "https://mobile-shop-mvc.herokuapp.com/products",
+  },
+  {
+    title: "Minecraft Cord Book",
+    img: MinecraftBook,
+    technologies: ["Vue", "Vuex"],
+    desc: "Zapisuj cordy w minecraft",
+    link: "https://infallible-hoover-75a427.netlify.app/",
   },
 ];
 
@@ -51,4 +59,6 @@ export const filters: string[] = [
   "Express",
   "EJS",
   "MongoDB",
+  "Vue",
+  "Vuex",
 ];
