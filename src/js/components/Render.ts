@@ -83,7 +83,6 @@ class Render {
       activeFilters
         .map((filter) => filter.toLocaleLowerCase())
         .forEach((filter) => {
-          console.log(filter);
           if (box.querySelectorAll(`.tag[data-filter="${filter}"]`).length)
             box.querySelectorAll(`.tag[data-filter="${filter}"]`).forEach((tagElement) => {
               tagElement.classList.add("active");

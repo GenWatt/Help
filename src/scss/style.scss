@@ -5,65 +5,62 @@
 @import "./components/technology-section.scss";
 @import "./components/filter-box.scss";
 @import "./components/responsive680px.scss";
-
 * {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
 
 body {
-  background-image: url("../assets/bg1.jpg");
-  background-size: 120% 120%;
-  background-repeat: no-repeat;
-  min-height: 100vh;
-  color: $primary-font-color;
-  font-family: Arial, Helvetica, sans-serif;
-  overflow: hidden;
+    background-image: url("../assets/bg1.jpg");
+    background-size: 120% 120%;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    color: $primary-font-color;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
 }
 
 .header-box {
-  display: flex;
-  justify-content: center;
-
-  .icon-set {
-    position: relative;
-  }
-  i {
-    position: absolute;
-    top: 50%;
-    font-size: $font-large + 2;
-    opacity: 0;
-    pointer-events: none;
-
-    &.active {
-      opacity: 0.5;
-      animation: bg-icon-animation 5s ease-out infinite;
-      @keyframes bg-icon-animation {
-        0%,
-        100% {
-          transform: scale(0.6) translateY(-25%);
-        }
-        50% {
-          transform: scale(1) translateY(-25%);
-        }
-      }
+    display: flex;
+    justify-content: center;
+    .icon-set {
+        position: relative;
     }
-  }
+    i {
+        position: absolute;
+        top: 50%;
+        font-size: $font-large + 2;
+        opacity: 0;
+        pointer-events: none;
+        &.active {
+            opacity: 0.5;
+            animation: bg-icon-animation 5s ease-out infinite;
+            @keyframes bg-icon-animation {
+                0%,
+                100% {
+                    transform: scale(0.6) translateY(-25%);
+                }
+                50% {
+                    transform: scale(1) translateY(-25%);
+                }
+            }
+        }
+    }
 }
 
 .header {
-  font-size: $font-large;
-  text-align: center;
-  margin-top: 40px;
-  animation: letter-spacing 1s ease-in 1s forwards;
-  @keyframes letter-spacing {
-    0% {
-      letter-spacing: 0;
+    font-size: $font-large;
+    text-align: center;
+    margin-top: 40px;
+    animation: letter-spacing 1s ease-in 1s forwards;
+    @keyframes letter-spacing {
+        0% {
+            letter-spacing: 0;
+        }
+        100% {
+            letter-spacing: 3px;
+            font-size: $font-large + 0, 4;
+        }
     }
-    100% {
-      letter-spacing: 3px;
-      font-size: $font-large + 0, 4;
-    }
-  }
 }

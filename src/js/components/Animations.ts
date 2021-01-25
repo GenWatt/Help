@@ -38,7 +38,7 @@ class Animations {
       }, STEP * (index + 2))
     );
   }
-
+  //make move items when mouse is on it
   public static projectRotate(projectsBox: NodeListOf<HTMLElement>) {
     projectsBox.forEach((project: HTMLElement) => {
       const imgElement: HTMLElement = project.querySelector(PROJECT_IMG);
